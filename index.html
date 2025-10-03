@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPORKL - E-Invite</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(135deg, #f39c12, #f1c40f);
+      color: white;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .highlights {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    form button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #f39c12;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover {
+      background: #e67e22;
+    }
+    footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #fef3c7;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SPORKL</h1>
+    <p>Namaste and Happy Diwali!</p>
+  </header>
+
+  <section>
+    <img src="logo.png" alt="SPORKL Logo" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+
+    <h2>You're Invited!</h2>
+    <p>We’re thrilled to invite you to the very first edition of our annual celebration — 
+       <strong>SPORKL: Surbhi, Poki & Lokesh’s Radiant Lights</strong> — a night filled with joy, sparkle, and unforgettable memories.</p>
+
+    <h3>✨ Event Details</h3>
+    <p><strong>Date & Time:</strong> Oct 25th, 2025 | 5 PM onwards</p>
+    <p><strong>Dress Code:</strong> Indian Festive – Sparkling ✨</p>
+
+    <h3>Highlights of the Evening</h3>
+    <div class="highlights">
+      🎤 Karaoke <br>
+      🃏 Poker Station <br>
+      💃 Barati Dance <br>
+      🍽️ Delicious Food & Drinks
+    </div>
+
+    <h3>RSVP</h3>
+    <form id="rsvpform"method="POST"action="https://script.google.com/macros/s/AKfycbxx44XZGOBbYQw33xJ_PlLOld-01QqRKmmjteLheS8mjzleJViHgCB1rQY0K8S0NyL-/exec">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="guests">Number of Guests</label>
+      <input type="number" id="guests" name="guests" min="1" required>
+
+      <label for="rsvp">RSVP</label>
+      <select id="rsvp" name="rsvp" required>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Maybe">Maybe</option>
+      </select>
+
+      <label for="notes">Notes / Dietary Preferences</label>
+      <textarea id="notes" name="notes" rows="3"></textarea>
+
+      <button type="submit">Submit RSVP</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Thank you for joining our celebration! ✨</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("rsvp-form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      await fetch(form.action, { method: "POST", body: data });
+      alert("RSVP submitted! Thank you 🌸");
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
